@@ -1,0 +1,12 @@
+{
+	"name": "shoptet/spayd-php",
+	"description": "Shoptet ecommerce system",
+	"keywords": ["spayd", "spayd-php", "qr-platba", "qrplatba"],
+	"homepage": "https://github.com/shoptet/spayd-php",
+	"type": "library",
+	"license": "MIT",
+
+	"require": {
+		"php": ">=5.3.0"
+	}
+}
