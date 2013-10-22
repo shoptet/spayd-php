@@ -14,13 +14,6 @@ class CzechAccount extends DefaultAccount {
 	private $accountNumber;
 	private $bankCode;
 	
-	public function __construct($accountString, $locale = NULL) {
-		parent::__construct($locale);
-
-		$this->accountString = $accountString;
-		$this->buildAccountParts();
-	}
-
 	public function getBankCode() {
 		return $this->bankCode;
 	}
