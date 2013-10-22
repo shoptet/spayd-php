@@ -30,7 +30,7 @@ class CzechAccount extends DefaultAccount {
 		return (bool) preg_match($this->czechRegularExpression, $this->accountString);
 	}
 	
-	private function buildAccountParts() {
+	protected function buildAccountParts() {
 		preg_match($this->czechRegularExpression, $this->accountString, $accountParts);
 		if (empty($accountParts['prefix']) === FALSE) {
 			$this->prefix = $accountParts['prefix'];
