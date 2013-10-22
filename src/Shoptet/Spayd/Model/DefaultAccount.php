@@ -64,5 +64,5 @@ abstract class DefaultAccount implements Account {
 		return $numericLanguageCode . '00';
 	}
 	
-	abstract function buildAccountParts();
+	abstract protected function buildAccountParts();
 }
