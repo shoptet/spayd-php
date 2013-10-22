@@ -7,6 +7,7 @@ abstract class DefaultAccount implements Account {
 	
 	const DEFAULT_LOCALE = 'CZ';
 	
+	protected $accountString;
 	protected $locale;
 	
 	protected $localeAlphabet = array(
@@ -38,12 +39,17 @@ abstract class DefaultAccount implements Account {
 		35 => 'Z',
 	);
 	
-	public function __construct($locale = NULL) {
+	public function __construct($accountString, $locale = NULL) {
+		$this->accountString = $accountString;
 		if (empty($locale) === TRUE) {
 			$this->locale = self::DEFAULT_LOCALE;
-		} else {
-			$this->locale;
 		}
+		
+		$this->buildAccountParts();
+	}
+	
+	public function getAccountString() {
+		return $this->accountString;
 	}
 	
 	public function getNumericLanguageCode() {
@@ -57,4 +63,6 @@ abstract class DefaultAccount implements Account {
 
 		return $numericLanguageCode . '00';
 	}
+	
+	abstract function buildAccountParts();
 }
