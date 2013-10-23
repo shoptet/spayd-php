@@ -10,6 +10,10 @@ abstract class DefaultAccount implements Account {
 	protected $accountString;
 	protected $locale;
 	
+	protected $prefix;
+	protected $accountNumber;
+	protected $bankCode;
+	
 	protected $localeAlphabet = array(
 		10 => 'A',
 		11 => 'B',
@@ -43,6 +47,8 @@ abstract class DefaultAccount implements Account {
 		$this->accountString = $accountString;
 		if (empty($locale) === TRUE) {
 			$this->locale = self::DEFAULT_LOCALE;
+		} else {
+			$this->locale = $locale;
 		}
 		
 		$this->buildAccountParts();
@@ -50,6 +56,26 @@ abstract class DefaultAccount implements Account {
 	
 	public function getAccountString() {
 		return $this->accountString;
+	}
+	
+	public function getBankCode() {
+		return $this->bankCode;
+	}
+
+	public function getAccountNumber() {
+		return $this->accountNumber;
+	}
+
+	public function getPrefix() {
+		return $this->prefix;
+	}
+
+	public function isValid() {
+		return (bool) preg_match($this->regularExpression, $this->accountString);
+	}
+	
+	public function getLocale() {
+		return $this->locale;
 	}
 	
 	public function getNumericLanguageCode() {
