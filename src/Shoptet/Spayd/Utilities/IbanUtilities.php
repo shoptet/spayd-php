@@ -8,9 +8,9 @@ class IbanUtilities {
 	
 	public static function computeIbanFromBankAccount(\Shoptet\Spayd\Model\DefaultAccount $account) {
 		if ($account->isValid()) {
-			$prefix = sprintf('%06d', $account->getPrefix());
-			$accountNumber = sprintf('%010d', $account->getAccountNumber());
-			$bankCode = sprintf('%04d', $account->getBankCode());
+			$prefix = str_pad($account->getPrefix(), 6, '0', STR_PAD_LEFT);
+			$accountNumber = str_pad($account->getAccountNumber(), 10, '0', STR_PAD_LEFT);
+			$bankCode = str_pad($account->getBankCode(), 4, '0', STR_PAD_LEFT);
 			
 			$accountBuffer = $bankCode . $prefix . $accountNumber . $account->getNumericLanguageCode();
 			$checksum = sprintf('%02d', (98 - bcmod($accountBuffer, 97)));
