@@ -10,7 +10,6 @@ class Spayd
 	const DELIMITER = '*';
 	const KV_DELIMITER = ':';
 
-	public $useBinaryCharset = TRUE;
 	public $appendCRC32 = TRUE;
 
 	protected $version = '1.0';
@@ -124,10 +123,6 @@ class Spayd
 			. self::DELIMITER
 			. $this->implodeContent();
 
-		if ($this->useBinaryCharset) {
-			$spayd = $this->binarify($spayd);
-		}
-
 		if ($this->appendCRC32) {
 			$spayd .= '*CRC32:' . sprintf('%x', crc32($spayd));
 		}
@@ -149,11 +144,6 @@ class Spayd
 	private function sortContent()
 	{
 		ksort($this->content);
-	}
-
-	private function binarify($s)
-	{
-		return $s;
 	}
 
 	public function __toString()
