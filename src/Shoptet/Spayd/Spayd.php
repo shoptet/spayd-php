@@ -7,11 +7,14 @@ use Shoptet\Spayd\Exceptions;
 class Spayd
 {
 	const BINARY_QR_REGEXP = '[0-9A-Z $%*+-./:]';
+	// Spayd part delimiter
 	const DELIMITER = '*';
+	// key, value delimiter
 	const KV_DELIMITER = ':';
 
 	public $appendCRC32 = TRUE;
 
+	// default Spayd string version
 	protected $version = '1.0';
 
 	private $content = array();
@@ -67,6 +70,10 @@ class Spayd
 	{
 	}
 
+	/*
+	 * @param string $version Version of spayd
+	 * @return Spayd
+	 */
 	public function setVersion($version)
 	{
 		if (!preg_match('~^\d\.\d$~', $version)) {
@@ -84,6 +91,11 @@ class Spayd
 		return $this->version;
 	}
 
+	/*
+	 * @param string $key
+	 * @param string $value
+	 * @return Spayd
+	 */
 	public function add($key, $value)
 	{
 		$key = $this->normalizeKey($key);
@@ -104,12 +116,19 @@ class Spayd
 		return $this;
 	}
 
+	/*
+	 * @param string $key
+	 * @return Spayd
+	 */
 	public function delete($key)
 	{
 		unset($this->content[$this->normalizeKey($key)]);
 		return $this;
 	}
 
+	/*
+	 * @param string $key
+	 */
 	private function normalizeKey($key)
 	{
 		return strtoupper($key);

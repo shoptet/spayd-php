@@ -41,6 +41,11 @@ abstract class DefaultAccount implements Account {
 		35 => 'Z',
 	);
 	
+	
+	/*
+	 * @param $accountString (string)
+	 * @param $locale (string)
+	 */
 	public function __construct($accountString, $locale = NULL) {
 		$this->accountString = $accountString;
 		if (empty($locale) === TRUE) {
@@ -81,12 +86,13 @@ abstract class DefaultAccount implements Account {
 
 		// step over each char from language code
 		foreach(str_split($this->locale) as $char) {
-			 // use the number for latein alphabet to decode
+			 // use the number for latin alphabet to decode
 			 $numericLanguageCode .= array_search($char, $this->localeAlphabet);
 		}
 
 		return $numericLanguageCode . '00';
 	}
 	
+	// method to build parts of the account
 	abstract protected function buildAccountParts();
 }
