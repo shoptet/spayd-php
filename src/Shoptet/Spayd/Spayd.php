@@ -161,11 +161,3 @@ class Spayd
 		return $this->generate();
 	}
 }
-
-/*require_once __DIR__ . '/exceptions/InvalidParameterException.php';
-$spayd = new Spayd();
-$spayd->add('acc', '123345456')
-	->add('am', 1000000)
-	->add('x-vs', '8403137863');
-
-echo $spayd;*/
