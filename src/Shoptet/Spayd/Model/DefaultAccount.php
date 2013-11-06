@@ -42,7 +42,7 @@ abstract class DefaultAccount implements Account {
 	);
 	
 	
-	/*
+	/**
 	 * @param $accountString (string)
 	 * @param $locale (string)
 	 */
@@ -81,6 +81,10 @@ abstract class DefaultAccount implements Account {
 		return $this->locale;
 	}
 	
+	/**
+	 * Returning numeric code of localization of account
+	 * @return string $numericLanguageCode
+	 */
 	public function getNumericLanguageCode() {
 		$numericLanguageCode = '';
 

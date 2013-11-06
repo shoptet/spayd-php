@@ -70,7 +70,7 @@ class Spayd
 	{
 	}
 
-	/*
+	/**
 	 * @param string $version Version of spayd
 	 * @return Spayd
 	 */
@@ -91,7 +91,7 @@ class Spayd
 		return $this->version;
 	}
 
-	/*
+	/**
 	 * @param string $key
 	 * @param string $value
 	 * @return Spayd
@@ -116,7 +116,7 @@ class Spayd
 		return $this;
 	}
 
-	/*
+	/**
 	 * @param string $key
 	 * @return Spayd
 	 */
@@ -126,7 +126,7 @@ class Spayd
 		return $this;
 	}
 
-	/*
+	/**
 	 * @param string $key
 	 */
 	private function normalizeKey($key)

@@ -6,6 +6,10 @@ use Shoptet\Spayd\Exceptions;
 
 class IbanUtilities {
 	
+	/**
+	 * @param \Shoptet\Spayd\Model\DefaultAccount $account
+	 * @return FALSE|string
+	 */
 	public static function computeIbanFromBankAccount(\Shoptet\Spayd\Model\DefaultAccount $account) {
 		if ($account->isValid()) {
 			$prefix = str_pad($account->getPrefix(), 6, '0', STR_PAD_LEFT);
