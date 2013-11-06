@@ -4,6 +4,7 @@ use Shoptet\Spayd\Model;
 
 class CzechAccount extends DefaultAccount {
 
+	const DEFAULT_LOCALE = 'CZ';
 	const PREFIX_DELIMITER = '-';
 	const BANK_CODE_DELIMITER = '/';
 	

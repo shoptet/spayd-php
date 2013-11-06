@@ -5,8 +5,6 @@ use Shoptet\Spayd\Model;
 
 abstract class DefaultAccount implements Account {
 	
-	const DEFAULT_LOCALE = 'CZ';
-	
 	protected $accountString;
 	protected $locale;
 	
