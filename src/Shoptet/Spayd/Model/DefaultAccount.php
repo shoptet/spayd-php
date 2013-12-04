@@ -49,7 +49,7 @@ abstract class DefaultAccount implements Account {
 	public function __construct($accountString, $locale = NULL) {
 		$this->accountString = $accountString;
 		if (empty($locale) === TRUE) {
-			$this->locale = self::DEFAULT_LOCALE;
+			$this->locale = static::DEFAULT_LOCALE;
 		} else {
 			$this->locale = $locale;
 		}
