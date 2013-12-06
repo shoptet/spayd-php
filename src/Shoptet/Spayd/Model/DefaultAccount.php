@@ -74,7 +74,7 @@ abstract class DefaultAccount implements Account {
 	}
 
 	public function isValid() {
-		return (bool) preg_match($this->regularExpression, $this->accountString);
+		return (bool) preg_match($this->accountPattern, $this->accountString);
 	}
 	
 	public function getLocale() {
